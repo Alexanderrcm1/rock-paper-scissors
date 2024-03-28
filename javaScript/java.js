@@ -4,15 +4,20 @@ function getComputerChoice() {
 
 }
 
+let player = 0;
+let computer = 0;
 
 function playGame() {
     for (let i = 1; i < 6; i++) {
+        console.log("Round: " + i)
+
         let computerSelection = getComputerChoice()
         console.log(computerSelection)
 
 
         let playerSelection = prompt("Choose Rock, Paper or Scissors!");
         playerSelection = playerSelection.toLowerCase();
+
         function playRound (playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
                 return("Tie");
@@ -36,7 +41,24 @@ function playGame() {
                 return("You Win! Scissors beats paper")
             }
         }
-        console.log(playRound(playerSelection,computerSelection));
+        let outcome = playRound(playerSelection,computerSelection);
+        console.log(outcome)
+
+        let win = outcome.includes("Win");
+        if (win == true) {
+            player++
+        }
+        else if (win == false) {
+            computer++
+        }
+        console.log("Player: " + player)
+        console.log("Computer: " + computer)
+    }
+    if (player > computer) {
+        console.log("Player Wins!")
+    }
+    else if (player < computer) {
+        console.log("Computer Wins!")
     }
 }
-console.log(playGame());
+playGame()
