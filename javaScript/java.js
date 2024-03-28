@@ -3,9 +3,9 @@ function getComputerChoice() {
     return rps[ (Math.floor(Math.random() * rps.length))];
 
 }
+
 let computerSelection = getComputerChoice()
 console.log(computerSelection)
-
 
 
 let playerSelection = prompt("Choose Rock, Paper or Scissors!");
@@ -17,22 +17,24 @@ function playRound (playerSelection, computerSelection) {
         return("Tie");
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
-        return("You Lose!");
+        return("You Lose! Paper beats rock");
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return("You Win!");
+        return("You Win! Rock beats scissors");
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
-        return("You Win!")
+        return("You Win! Paper beats rock")
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return("You Lose!")
+        return("You Lose! Scissors beats paper")
     }
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return("You Lose!")
+        return("You Lose! Rock beats scissors")
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return("You Win!")
+        return("You Win! Scissors beats paper")
     }
-
 }
+
+    
+console.log(playRound(playerSelection, computerSelection));
